@@ -47,3 +47,5 @@ git push origin master --force
 위 명령어로, 모든 커밋 히스토리에서 settings.py 파일을 삭제했고, SECRET_KEY를 분리한 가장 최근 커밋에만 settings.py가 존재한다.
 
 앞으로는 프로젝트를 시작하자마자 SECRET_KEY를 분리해서 이와같은 일이 다시는 발생하지 않도록 유의할 것!
+
+그럼 gitignore로 인해 SECRET_KEY가 담겨있는 secrets.json 파일은 원격 레퍼지토리에 없으니까, git 기반 클라우드 서버로는 작동이 안되는 건가??
