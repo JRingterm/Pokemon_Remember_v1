@@ -34,3 +34,15 @@
 
 ### description
 포켓몬의 조정의미, 역할
+
+
+# SECRET_KEY를 그대로 푸쉬해버린 실수
+
+### settings.py에 있는 SECRET_KEY는 보안과 관련된 민감한 파일. 나의 실수로 여태껏 해왔던 모든 커밋에 SECRET_KEY가 노출되었다.
+
+### git filter-branch --tree-filter 'rm Pokemon_Remember_v1/settings.py' HEAD
+### git push origin master --force
+
+### 위 명령어로, 모든 커밋 히스토리에서 settings.py 파일을 삭제했고, SECRET_KEY를 분리한 가장 최근 커밋에만 settings.py가 존재한다.
+
+### 앞으로는 프로젝트를 시작하자마자 SECRET_KEY를 분리해서 이와같은 일이 다시는 발생하지 않도록 유의할 것!
