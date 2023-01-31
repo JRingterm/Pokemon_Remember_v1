@@ -38,9 +38,9 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False #배포시에 False로 변경. 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] #배포시 '*'로 변경
 
 
 # Application definition
@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'Pokemon_Remember_v1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'), #GCP에서 runserver시에 오류. NAME값 str형식으로 변경 
     }
 }
 
@@ -149,6 +149,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') #배포시 추가
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
